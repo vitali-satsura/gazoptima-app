@@ -1,0 +1,62 @@
+<form [formGroup]="service.form" class="normal-form" (ngSubmit)="saveWorkOrder()">
+  <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <mat-select formControlName="typeOfWorkId" [(ngModel)]="workOrder.typeOfWorkId" placeholder="Тип работ*">
+            <ng-container *ngFor="let typeOfWork of typeOfWorks">
+              <mat-option value="{{typeOfWork.id}}">{{typeOfWork.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="employeeId" [(ngModel)]="workOrder.employeeId" placeholder="Ответственный*">
+            <ng-container *ngFor="let employee of employees">
+              <mat-option value="{{employee.id}}">{{employee.fullName}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="customerId" [(ngModel)]="workOrder.customerId" placeholder="Заказчик*">
+            <ng-container *ngFor="let customer of customers">
+              <mat-option value="{{customer.id}}">{{customer.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+          <mat-error>Это поле является обязательным</mat-error>
+      </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="startDate" matInput [(ngModel)]="workOrder.startDate"
+                 [matDatepicker]="picker" placeholder="Дата начала">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="endDate" matInput [(ngModel)]="workOrder.endDate"
+                 [matDatepicker]="picker1" placeholder="Дата начала">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="price" matInput [(ngModel)]="workOrder.price" placeholder="Стоимость">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Добавить</button>
+        <button mat-raised-button color="warn" type="button" (click)="onClear()">Очистить</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

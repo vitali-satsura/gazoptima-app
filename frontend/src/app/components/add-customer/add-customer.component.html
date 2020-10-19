@@ -1,0 +1,29 @@
+<form [formGroup]="service.form" class="normal-form" (ngSubmit)="saveCustomer()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="name" matInput [(ngModel)]="customer.name" placeholder="Наименование*">
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="address" matInput [(ngModel)]="customer.address" placeholder="Адрес">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="phone" matInput [(ngModel)]="customer.phone" placeholder="Телефон*">
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Добавить</button>
+          <button mat-raised-button color="warn" type="button" (click)="onClear()">Очистить</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

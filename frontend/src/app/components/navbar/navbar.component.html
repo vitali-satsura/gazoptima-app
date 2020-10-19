@@ -1,0 +1,14 @@
+<mat-toolbar class="mat-elevation-z8" color="primary">
+  <span>
+    <mat-icon>eco</mat-icon>ГазОптима
+  </span>
+
+  <div class="spacer"></div>
+
+  <nav mat-tab-nav-bar backgroundColor="primary">
+    <a mat-tab-link *ngFor="let link of links"
+       (click)="activeLink = link"
+       routerLink="{{link.path}}"
+       [active]="activeLink == link"> {{link.name}} </a>
+  </nav>
+</mat-toolbar>

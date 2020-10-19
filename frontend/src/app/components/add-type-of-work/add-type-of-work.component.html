@@ -1,0 +1,22 @@
+<form [formGroup]="service.form" class="normal-form" (ngSubmit)="saveTypeOfWork()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="name" matInput [(ngModel)]="typeOfWork.name" placeholder="Вид работы*">
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Добавить</button>
+          <button mat-raised-button color="warn" type="button" (click)="onClear()">Очистить</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

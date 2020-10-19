@@ -1,0 +1,16 @@
+position
+{
+    "id": 2,
+    "name": "сварщик",
+    "salary": 1000.0,
+    "employees": null
+}
+
+employees
+{
+    "fullName": "Морозова Валентина Ивановна",
+    "dateOfBirth": "14.10.1964",
+    "address": "г.Гомель, ул.Барыкина, 100-54",
+    "phone": "+37529 7434567",
+    "positionId": "1",
+}

@@ -1,0 +1,30 @@
+<form [formGroup]="service.form" class="normal-form" (ngSubmit)="savePosition()">
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="name" matInput [(ngModel)]="positon.name" placeholder="Должность*">
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="salary" matInput [(ngModel)]="positon.salary" placeholder="Зарплата*">
+          <mat-error>Это поле является обязательным</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Добавить</button>
+        <button mat-raised-button color="warn" type="button" (click)="onClear()">Очистить</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
